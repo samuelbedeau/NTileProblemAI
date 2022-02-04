@@ -35,13 +35,13 @@ def simulate(instanceList, goal):
       state = copy.deepcopy(path[-1])
       for nextState in move(state): # Here we are effectively generating the nodes in our tree/graph
         ctMove +=1
-        if nextState not in path: # Path is the same as visited ?
-          path.append(nextState) # Path is now made longer 
+        if nextState not in path: 
+          path.append(nextState) 
           solution, moveCount = dfs_rec(path, depth-1)
           ctMove += moveCount
-          if solution != None: # If path is not empty/ if there is children nodes?
+          if solution != None: 
             return solution, ctMove
-          path.pop() # no more children, so remove from path, backtrack and traverse a different node
+          path.pop() 
     return None, ctMove
 
   def DFID(startState):
